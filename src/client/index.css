@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  /* Same as --bench in slideblock.css, which is scoped to .sb-root. */
+  background-color: #17110c;
+  color-scheme: dark;
+}

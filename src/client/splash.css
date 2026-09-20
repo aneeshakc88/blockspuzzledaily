@@ -1,0 +1,900 @@
+/* Feed splash. Deliberately standalone: no tailwind, no network calls, so the
+   card paints on first frame inside the feed. Palette matches slideblock.css. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.sp {
+  --bench: #17110c;
+  --walnut: #5a3a22;
+  --floor: #2a1b11;
+  --padauk: #a8401f;
+  --padauk-hi: #d0643a;
+  --brass: #cfa24a;
+  --brass-hi: #f0cf7e;
+  --bone: #f1e4cc;
+  --muted: #a88d6d;
+  --display: 'Holtwood One SC', 'Rockwell Extra Bold', Rockwell, Georgia, serif;
+  --sans: 'Alegreya Sans', 'Gill Sans', 'Trebuchet MS', system-ui, sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: clamp(12px, 3vw, 28px);
+  color: var(--bone);
+  font-family: var(--sans);
+  background-color: var(--bench);
+  background-image:
+    radial-gradient(
+      ellipse 75% 55% at 50% 45%,
+      rgba(255, 190, 110, 0.16),
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 calc(25% - 2px),
+      rgba(0, 0, 0, 0.32) calc(25% - 2px) calc(25% - 1px),
+      rgba(255, 220, 170, 0.03) calc(25% - 1px) 25%
+    ),
+    linear-gradient(180deg, #221812, #120d09);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.sp *,
+.sp *::before,
+.sp *::after {
+  box-sizing: border-box;
+}
+
+.sp :focus-visible {
+  outline: 2px solid var(--brass-hi);
+  outline-offset: 3px;
+}
+
+/* One column at every width: the tray reads as the product shot, the copy as
+   the caption under it. */
+.sp-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(12px, 2.6vh, 22px);
+  place-items: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Tray */
+
+.sp-tray {
+  --cell: clamp(26px, 7.4vw, 40px);
+  --gap: 3px;
+  --r: 6px;
+
+  position: relative;
+  flex: none;
+  padding: 10px;
+  border-radius: 14px;
+  background-color: var(--walnut);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 226, 186, 0.05) 0 2px,
+      transparent 2px 7px,
+      rgba(0, 0, 0, 0.16) 7px 8px,
+      transparent 8px 13px
+    ),
+    linear-gradient(180deg, rgba(255, 220, 170, 0.14), rgba(0, 0, 0, 0.3));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 225, 180, 0.22),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.45),
+    0 12px 26px rgba(0, 0, 0, 0.55);
+}
+
+.sp-floor {
+  position: relative;
+  width: calc(var(--cell) * 5);
+  height: calc(var(--cell) * 4);
+  border-radius: 8px;
+  background-color: var(--floor);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 226, 186, 0.035) 0 3px,
+    transparent 3px 11px
+  );
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.66);
+}
+
+/* The exit: a notch cut out of the right wall, lit from inside. */
+.sp-exit {
+  position: absolute;
+  top: calc(var(--cell) * 1);
+  right: -10px;
+  width: 10px;
+  height: var(--cell);
+  background: linear-gradient(
+    90deg,
+    rgba(240, 207, 126, 0.05),
+    rgba(240, 207, 126, 0.34)
+  );
+  box-shadow: 0 0 12px 1px rgba(240, 207, 126, 0.3);
+}
+
+.sp-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--w) * var(--cell) - var(--gap));
+  height: calc(var(--h) * var(--cell) - var(--gap));
+  border-radius: var(--r);
+  background-color: #c8a171;
+  background-image:
+    repeating-linear-gradient(
+      var(--grain, 90deg),
+      rgba(255, 244, 222, 0.22) 0 2px,
+      transparent 2px 6px,
+      rgba(90, 55, 25, 0.24) 6px 7px,
+      transparent 7px 12px
+    ),
+    linear-gradient(160deg, rgba(255, 244, 222, 0.3), rgba(74, 44, 20, 0.34));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 228, 0.55),
+    inset 0 -2px 3px rgba(60, 32, 12, 0.5),
+    0 3px 5px rgba(0, 0, 0, 0.42);
+  transform: translate3d(
+    calc(var(--x) * var(--cell) + var(--gap) / 2),
+    calc(var(--y) * var(--cell) + var(--gap) / 2),
+    0
+  );
+}
+
+.sp-block.is-dark {
+  background-color: #8d6238;
+  background-image:
+    repeating-linear-gradient(
+      var(--grain, 90deg),
+      rgba(255, 226, 186, 0.14) 0 2px,
+      transparent 2px 6px,
+      rgba(40, 22, 8, 0.3) 6px 7px,
+      transparent 7px 12px
+    ),
+    linear-gradient(160deg, rgba(255, 226, 186, 0.22), rgba(40, 22, 8, 0.4));
+}
+
+.sp-block.is-exit {
+  background-color: var(--padauk);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 186, 150, 0.2) 0 2px,
+      transparent 2px 6px,
+      rgba(70, 18, 6, 0.32) 6px 7px,
+      transparent 7px 12px
+    ),
+    linear-gradient(160deg, var(--padauk-hi), #7d2a12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 196, 164, 0.5),
+    inset 0 -2px 3px rgba(60, 14, 4, 0.55),
+    0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* One solve, on a loop: two blockers clear the lane, the red block leaves. */
+.sp-block.is-anim {
+  animation: var(--track) 7s cubic-bezier(0.34, 0.9, 0.3, 1) infinite;
+}
+
+@keyframes sp-clear-a {
+  0%,
+  8% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+  20%,
+  90% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc((var(--y) + 2) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+  100% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+}
+
+@keyframes sp-clear-b {
+  0%,
+  22% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+  34%,
+  90% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc((var(--y) + 2) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+  100% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+  }
+}
+
+/* Out through the notch, then back to the start while out of sight. */
+@keyframes sp-escape {
+  0%,
+  40% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+    opacity: 1;
+  }
+  60%,
+  72% {
+    transform: translate3d(
+      calc((var(--x) + 3) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+    opacity: 1;
+  }
+  84% {
+    transform: translate3d(
+      calc((var(--x) + 4.8) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+    opacity: 0;
+  }
+  84.01%,
+  92% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(
+      calc(var(--x) * var(--cell) + var(--gap) / 2),
+      calc(var(--y) * var(--cell) + var(--gap) / 2),
+      0
+    );
+    opacity: 1;
+  }
+}
+
+/* Copy */
+
+.sp-copy {
+  display: grid;
+  justify-items: center;
+  gap: clamp(6px, 1.6vh, 10px);
+  text-align: center;
+}
+
+.sp-kicker {
+  margin: 0;
+  font-size: clamp(10px, 2.6vw, 12px);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.sp-wordmark {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(26px, 8.2vw, 44px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #ead6b2;
+  text-shadow:
+    0 -1px 0 rgba(0, 0, 0, 0.75),
+    0 2px 0 rgba(255, 225, 180, 0.14),
+    0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.sp-wordmark span {
+  color: var(--padauk-hi);
+}
+
+/* Face pile: today's fastest solvers cheering from the left edge of the splash,
+   behind the card. Absolute against .sp, so nothing else on the card moves. */
+
+.sp-pile {
+  --pile: clamp(79px, 25.5vw, 128px);
+
+  position: absolute;
+  left: 0;
+  top: 44%;
+  z-index: 0;
+  width: var(--pile);
+  height: calc(var(--pile) * 1.3);
+  pointer-events: none;
+}
+
+.sp-pile-snoo {
+  position: absolute;
+  left: var(--x);
+  bottom: var(--y);
+  z-index: var(--z);
+  width: var(--w);
+  height: auto;
+  transform: rotate(var(--r));
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.6));
+  animation: sp-bob 3.4s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* The viewer stands in front of the crowd, lit by the same brass as the CTA. */
+.sp-pile-snoo.is-you {
+  z-index: 9;
+  filter: drop-shadow(0 0 5px rgba(240, 207, 126, 0.8))
+    drop-shadow(0 5px 7px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes sp-bob {
+  50% {
+    transform: translateY(-5%) rotate(var(--r));
+  }
+}
+
+.sp-tag {
+  margin: 0;
+  max-width: 32ch;
+  font-size: clamp(11px, 2.9vw, 13px);
+  line-height: 1.4;
+  color: var(--bone);
+}
+
+.sp-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(4px, 1.4vh, 12px);
+  padding: clamp(13px, 2vh, 17px) clamp(34px, 9vw, 52px);
+  border: 0;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: clamp(17px, 5vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #2a1a06;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 249, 226, 0.75),
+    inset 0 -2px 0 rgba(120, 80, 16, 0.45),
+    0 6px 16px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 110ms ease,
+    filter 110ms ease;
+}
+
+.sp-cta:hover {
+  filter: brightness(1.06);
+}
+
+.sp-cta:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 249, 226, 0.6),
+    inset 0 -1px 0 rgba(120, 80, 16, 0.45),
+    0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.sp-cta svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Trophy + leaderboard */
+
+.sp-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  color: var(--brass-hi);
+  cursor: pointer;
+  background: rgba(255, 220, 170, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(255, 220, 170, 0.15);
+  transition: background 120ms;
+}
+
+.sp-icon-btn:hover {
+  background: rgba(255, 220, 170, 0.14);
+}
+
+.sp-icon-btn svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sp-trophy {
+  position: absolute;
+  top: clamp(10px, 2.4vw, 18px);
+  right: clamp(10px, 2.4vw, 18px);
+  z-index: 2;
+}
+
+/* Faces */
+
+.sp-avatar {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  flex: none;
+  width: var(--size, 32px);
+  height: var(--size, 32px);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #6b4526, #3a2414);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(240, 207, 126, 0.55),
+    0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sp-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.sp-avatar-letter {
+  font-size: calc(var(--size, 32px) * 0.44);
+  font-weight: 800;
+  color: var(--brass-hi);
+}
+
+/* Sheet */
+
+/* The leaderboard is its own screen, not a card in a scrim: it replaces the
+   splash so the ranks get the full post height. */
+
+.sp-full {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  place-items: stretch;
+  padding: 14px clamp(12px, 4vw, 20px) clamp(12px, 3vh, 18px);
+  animation: sp-fade 140ms ease-out;
+}
+
+.sp-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden auto;
+  animation: sp-rise 180ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.sp-full > .sp-tabs,
+.sp-full > .sp-sheet-head {
+  flex: none;
+}
+
+/* Wide feeds get a column, not a stretched row of names. The close button is
+   absolutely positioned to match the splash's trophy spot, so it sits outside
+   this constraint - stretching it here broke its position entirely. */
+.sp-full > *:not(.sp-trophy) {
+  width: min(460px, 100%);
+  margin-inline: auto;
+}
+
+.sp-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  /* Clears the absolutely positioned close button in the same corner. */
+  padding: 2px 44px 12px 0;
+  border-bottom: 1px solid rgba(255, 220, 170, 0.12);
+}
+
+.sp-sheet-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(19px, 5.6vw, 26px);
+  line-height: 1.1;
+  text-align: left;
+  color: #ead6b2;
+}
+
+.sp-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--brass-hi);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sp-sheet-note {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(11px, 3vw, 13px);
+  color: var(--muted);
+}
+
+/* Scores / Stats */
+
+.sp-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(9, 5, 3, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 220, 170, 0.1);
+}
+
+.sp-tab {
+  padding: 9px 0;
+  border: 0;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: clamp(10px, 2.9vw, 12px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  background: transparent;
+  transition:
+    background 120ms,
+    color 120ms;
+}
+
+.sp-tab:hover {
+  color: var(--bone);
+}
+
+.sp-tab.is-on {
+  color: #2a1a06;
+  background-image: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Your own line, pinned above a list you may not be in */
+
+.sp-you {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(240, 207, 126, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(240, 207, 126, 0.26);
+}
+
+.sp-you .sp-avatar {
+  --size: 26px;
+}
+
+.sp-you-label {
+  font-size: clamp(9px, 2.5vw, 10px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.sp-you-place {
+  font-size: clamp(12px, 3.4vw, 14px);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--bone);
+}
+
+.sp-you-time {
+  font-size: clamp(12px, 3.4vw, 14px);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--brass-hi);
+}
+
+/* Stats tab */
+
+.sp-stats {
+  display: grid;
+  gap: 10px;
+}
+
+.sp-stats-who {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding-top: 4px;
+}
+
+.sp-stats-who .sp-avatar {
+  --size: 60px;
+}
+
+.sp-stats-name {
+  margin: 6px 0 0;
+  font-size: clamp(14px, 4vw, 17px);
+  font-weight: 800;
+  color: var(--bone);
+}
+
+.sp-stats-sub {
+  margin: 0;
+  font-size: clamp(10px, 2.9vw, 12px);
+  color: var(--muted);
+}
+
+.sp-stats-head {
+  margin: 4px 0 0;
+  font-size: clamp(9px, 2.6vw, 10px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sp-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sp-stat-grid.is-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sp-stat {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 11px 6px;
+  border-radius: 13px;
+  background: rgba(255, 220, 170, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 220, 170, 0.11);
+}
+
+.sp-stat-label {
+  font-size: clamp(8px, 2.4vw, 9px);
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.sp-stat-value {
+  font-size: clamp(19px, 6vw, 26px);
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--bone);
+}
+
+.sp-stat.is-hi .sp-stat-value {
+  color: var(--brass-hi);
+}
+
+/* Podium: winner raised in the middle, runner-up left, third right. */
+.sp-podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sp-step {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.sp-step .sp-avatar {
+  --size: 40px;
+}
+
+.sp-step.is-1 .sp-avatar {
+  --size: 54px;
+  box-shadow:
+    inset 0 0 0 2px var(--brass-hi),
+    0 0 16px rgba(240, 207, 126, 0.35);
+}
+
+.sp-step-name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: clamp(10px, 2.8vw, 12px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--bone);
+}
+
+.sp-step-time {
+  font-size: clamp(11px, 3vw, 13px);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--brass-hi);
+}
+
+/* The step itself, as a block of walnut. */
+.sp-step-block {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-top: 2px;
+  border-radius: 7px 7px 3px 3px;
+  font-family: var(--display);
+  font-size: clamp(13px, 4vw, 17px);
+  color: rgba(255, 236, 205, 0.75);
+  background-color: var(--walnut);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 225, 180, 0.22),
+    rgba(0, 0, 0, 0.3)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 235, 200, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.45);
+}
+
+.sp-step.is-1 .sp-step-block {
+  height: 64px;
+  color: #2a1a06;
+  background-image: linear-gradient(180deg, var(--brass-hi), var(--brass));
+}
+
+.sp-step.is-2 .sp-step-block {
+  height: 46px;
+}
+
+.sp-step.is-3 .sp-step-block {
+  height: 34px;
+}
+
+.sp-step.is-empty {
+  opacity: 0.35;
+}
+
+.sp-step.is-you .sp-step-name {
+  color: var(--brass-hi);
+  font-weight: 800;
+}
+
+/* Everyone else */
+
+.sp-ranks {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sp-ranks li {
+  display: grid;
+  grid-template-columns: 26px auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 8px;
+  border-radius: 9px;
+  font-size: clamp(11px, 3.2vw, 13px);
+}
+
+.sp-ranks li:nth-child(odd) {
+  background: rgba(255, 220, 170, 0.04);
+}
+
+.sp-ranks li.is-you {
+  background: rgba(240, 207, 126, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(240, 207, 126, 0.3);
+}
+
+.sp-ranks .sp-avatar {
+  --size: 24px;
+}
+
+.sp-rank-no {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.sp-rank-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--bone);
+}
+
+.sp-rank-time {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--brass-hi);
+}
+
+@keyframes sp-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* A feed card can be short and wide: drop the tray rather than squash both. */
+@media (max-height: 240px) {
+  .sp-tray {
+    display: none;
+  }
+
+  .sp-pile {
+    --pile: clamp(59px, 18vw, 90px);
+  }
+
+  .sp-card {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-block.is-anim,
+  .sp-pile-snoo {
+    animation: none;
+  }
+}

@@ -1,0 +1,1244 @@
+[
+  {
+    "id": 1790000000000,
+    "name": "gen8-1",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "vertical",
+          "length": 2,
+          "track": 4
+        },
+        {
+          "id": 1,
+          "axis": "vertical",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 2,
+          "axis": "vertical",
+          "length": 2,
+          "track": 2
+        },
+        {
+          "id": 3,
+          "axis": "vertical",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 4,
+          "axis": "vertical",
+          "length": 4,
+          "track": 6
+        },
+        {
+          "id": 5,
+          "axis": "vertical",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 6,
+          "axis": "vertical",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 7,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 8,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 3
+        },
+        {
+          "id": 9,
+          "axis": "vertical",
+          "length": 3,
+          "track": 6
+        },
+        {
+          "id": 10,
+          "axis": "vertical",
+          "length": 2,
+          "track": 7
+        },
+        {
+          "id": 11,
+          "axis": "vertical",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 12,
+          "axis": "vertical",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 13,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 7
+        },
+        {
+          "id": 14,
+          "axis": "vertical",
+          "length": 4,
+          "track": 5
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "bottom"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 0
+        },
+        {
+          "pieceId": 1,
+          "pos": 5
+        },
+        {
+          "pieceId": 2,
+          "pos": 1
+        },
+        {
+          "pieceId": 3,
+          "pos": 3
+        },
+        {
+          "pieceId": 4,
+          "pos": 3
+        },
+        {
+          "pieceId": 5,
+          "pos": 0
+        },
+        {
+          "pieceId": 6,
+          "pos": 4
+        },
+        {
+          "pieceId": 7,
+          "pos": 3
+        },
+        {
+          "pieceId": 8,
+          "pos": 1
+        },
+        {
+          "pieceId": 9,
+          "pos": 0
+        },
+        {
+          "pieceId": 10,
+          "pos": 3
+        },
+        {
+          "pieceId": 11,
+          "pos": 5
+        },
+        {
+          "pieceId": 12,
+          "pos": 0
+        },
+        {
+          "pieceId": 13,
+          "pos": 3
+        },
+        {
+          "pieceId": 14,
+          "pos": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000001,
+    "name": "gen8-2",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 1,
+          "axis": "vertical",
+          "length": 4,
+          "track": 7
+        },
+        {
+          "id": 2,
+          "axis": "vertical",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 3,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 2
+        },
+        {
+          "id": 4,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 4
+        },
+        {
+          "id": 5,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 6,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 5
+        },
+        {
+          "id": 7,
+          "axis": "vertical",
+          "length": 2,
+          "track": 2
+        },
+        {
+          "id": 8,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 9,
+          "axis": "vertical",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 10,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 7
+        },
+        {
+          "id": 11,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 12,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 5
+        },
+        {
+          "id": 13,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 3
+        },
+        {
+          "id": 14,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 0
+        },
+        {
+          "id": 15,
+          "axis": "vertical",
+          "length": 2,
+          "track": 1
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "right"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 5
+        },
+        {
+          "pieceId": 1,
+          "pos": 4
+        },
+        {
+          "pieceId": 2,
+          "pos": 0
+        },
+        {
+          "pieceId": 3,
+          "pos": 6
+        },
+        {
+          "pieceId": 4,
+          "pos": 0
+        },
+        {
+          "pieceId": 5,
+          "pos": 3
+        },
+        {
+          "pieceId": 6,
+          "pos": 0
+        },
+        {
+          "pieceId": 7,
+          "pos": 1
+        },
+        {
+          "pieceId": 8,
+          "pos": 5
+        },
+        {
+          "pieceId": 9,
+          "pos": 0
+        },
+        {
+          "pieceId": 10,
+          "pos": 2
+        },
+        {
+          "pieceId": 11,
+          "pos": 3
+        },
+        {
+          "pieceId": 12,
+          "pos": 4
+        },
+        {
+          "pieceId": 13,
+          "pos": 1
+        },
+        {
+          "pieceId": 14,
+          "pos": 2
+        },
+        {
+          "pieceId": 15,
+          "pos": 6
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000002,
+    "name": "gen8-4",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "vertical",
+          "length": 2,
+          "track": 2
+        },
+        {
+          "id": 1,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 4
+        },
+        {
+          "id": 2,
+          "axis": "vertical",
+          "length": 3,
+          "track": 4
+        },
+        {
+          "id": 3,
+          "axis": "vertical",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 4,
+          "axis": "vertical",
+          "length": 2,
+          "track": 3
+        },
+        {
+          "id": 5,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 6,
+          "axis": "vertical",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 7,
+          "axis": "vertical",
+          "length": 2,
+          "track": 2
+        },
+        {
+          "id": 8,
+          "axis": "vertical",
+          "length": 4,
+          "track": 4
+        },
+        {
+          "id": 9,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 4
+        },
+        {
+          "id": 10,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 11,
+          "axis": "vertical",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 12,
+          "axis": "vertical",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 13,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 14,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 15,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "bottom"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 5
+        },
+        {
+          "pieceId": 1,
+          "pos": 5
+        },
+        {
+          "pieceId": 2,
+          "pos": 1
+        },
+        {
+          "pieceId": 3,
+          "pos": 3
+        },
+        {
+          "pieceId": 4,
+          "pos": 6
+        },
+        {
+          "pieceId": 5,
+          "pos": 0
+        },
+        {
+          "pieceId": 6,
+          "pos": 0
+        },
+        {
+          "pieceId": 7,
+          "pos": 0
+        },
+        {
+          "pieceId": 8,
+          "pos": 4
+        },
+        {
+          "pieceId": 9,
+          "pos": 2
+        },
+        {
+          "pieceId": 10,
+          "pos": 4
+        },
+        {
+          "pieceId": 11,
+          "pos": 1
+        },
+        {
+          "pieceId": 12,
+          "pos": 0
+        },
+        {
+          "pieceId": 13,
+          "pos": 0
+        },
+        {
+          "pieceId": 14,
+          "pos": 5
+        },
+        {
+          "pieceId": 15,
+          "pos": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000003,
+    "name": "gen8-5",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 1,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 4
+        },
+        {
+          "id": 2,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 3,
+          "axis": "vertical",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 4,
+          "axis": "vertical",
+          "length": 3,
+          "track": 4
+        },
+        {
+          "id": 5,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 6
+        },
+        {
+          "id": 6,
+          "axis": "vertical",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 7,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 8,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 7
+        },
+        {
+          "id": 9,
+          "axis": "vertical",
+          "length": 2,
+          "track": 5
+        },
+        {
+          "id": 10,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 11,
+          "axis": "vertical",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 12,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 13,
+          "axis": "vertical",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 14,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 4
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "right"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 5
+        },
+        {
+          "pieceId": 1,
+          "pos": 5
+        },
+        {
+          "pieceId": 2,
+          "pos": 2
+        },
+        {
+          "pieceId": 3,
+          "pos": 5
+        },
+        {
+          "pieceId": 4,
+          "pos": 2
+        },
+        {
+          "pieceId": 5,
+          "pos": 4
+        },
+        {
+          "pieceId": 6,
+          "pos": 1
+        },
+        {
+          "pieceId": 7,
+          "pos": 3
+        },
+        {
+          "pieceId": 8,
+          "pos": 4
+        },
+        {
+          "pieceId": 9,
+          "pos": 2
+        },
+        {
+          "pieceId": 10,
+          "pos": 0
+        },
+        {
+          "pieceId": 11,
+          "pos": 1
+        },
+        {
+          "pieceId": 12,
+          "pos": 4
+        },
+        {
+          "pieceId": 13,
+          "pos": 0
+        },
+        {
+          "pieceId": 14,
+          "pos": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000004,
+    "name": "gen8-6",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "vertical",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 1,
+          "axis": "vertical",
+          "length": 2,
+          "track": 3
+        },
+        {
+          "id": 2,
+          "axis": "vertical",
+          "length": 4,
+          "track": 4
+        },
+        {
+          "id": 3,
+          "axis": "vertical",
+          "length": 4,
+          "track": 7
+        },
+        {
+          "id": 4,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 6
+        },
+        {
+          "id": 5,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 6,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 7,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 8,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 9,
+          "axis": "vertical",
+          "length": 2,
+          "track": 7
+        },
+        {
+          "id": 10,
+          "axis": "vertical",
+          "length": 3,
+          "track": 6
+        },
+        {
+          "id": 11,
+          "axis": "vertical",
+          "length": 2,
+          "track": 5
+        },
+        {
+          "id": 12,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 13,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 14,
+          "axis": "vertical",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 15,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 4
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "bottom"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 4
+        },
+        {
+          "pieceId": 1,
+          "pos": 6
+        },
+        {
+          "pieceId": 2,
+          "pos": 2
+        },
+        {
+          "pieceId": 3,
+          "pos": 2
+        },
+        {
+          "pieceId": 4,
+          "pos": 4
+        },
+        {
+          "pieceId": 5,
+          "pos": 1
+        },
+        {
+          "pieceId": 6,
+          "pos": 0
+        },
+        {
+          "pieceId": 7,
+          "pos": 4
+        },
+        {
+          "pieceId": 8,
+          "pos": 1
+        },
+        {
+          "pieceId": 9,
+          "pos": 0
+        },
+        {
+          "pieceId": 10,
+          "pos": 1
+        },
+        {
+          "pieceId": 11,
+          "pos": 1
+        },
+        {
+          "pieceId": 12,
+          "pos": 1
+        },
+        {
+          "pieceId": 13,
+          "pos": 1
+        },
+        {
+          "pieceId": 14,
+          "pos": 3
+        },
+        {
+          "pieceId": 15,
+          "pos": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000005,
+    "name": "gen8-7",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 7
+        },
+        {
+          "id": 1,
+          "axis": "vertical",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 2,
+          "axis": "vertical",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 3,
+          "axis": "vertical",
+          "length": 3,
+          "track": 1
+        },
+        {
+          "id": 4,
+          "axis": "vertical",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 5,
+          "axis": "vertical",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 6,
+          "axis": "vertical",
+          "length": 4,
+          "track": 4
+        },
+        {
+          "id": 7,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 8,
+          "axis": "vertical",
+          "length": 3,
+          "track": 6
+        },
+        {
+          "id": 9,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 10,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 11,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 12,
+          "axis": "vertical",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 13,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 4
+        },
+        {
+          "id": 14,
+          "axis": "vertical",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 15,
+          "axis": "vertical",
+          "length": 2,
+          "track": 0
+        },
+        {
+          "id": 16,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 17,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 6
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "right"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 3
+        },
+        {
+          "pieceId": 1,
+          "pos": 0
+        },
+        {
+          "pieceId": 2,
+          "pos": 3
+        },
+        {
+          "pieceId": 3,
+          "pos": 5
+        },
+        {
+          "pieceId": 4,
+          "pos": 3
+        },
+        {
+          "pieceId": 5,
+          "pos": 6
+        },
+        {
+          "pieceId": 6,
+          "pos": 0
+        },
+        {
+          "pieceId": 7,
+          "pos": 0
+        },
+        {
+          "pieceId": 8,
+          "pos": 3
+        },
+        {
+          "pieceId": 9,
+          "pos": 1
+        },
+        {
+          "pieceId": 10,
+          "pos": 2
+        },
+        {
+          "pieceId": 11,
+          "pos": 6
+        },
+        {
+          "pieceId": 12,
+          "pos": 5
+        },
+        {
+          "pieceId": 13,
+          "pos": 4
+        },
+        {
+          "pieceId": 14,
+          "pos": 5
+        },
+        {
+          "pieceId": 15,
+          "pos": 1
+        },
+        {
+          "pieceId": 16,
+          "pos": 3
+        },
+        {
+          "pieceId": 17,
+          "pos": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": 1790000000006,
+    "name": "gen8-8",
+    "spec": {
+      "width": 8,
+      "height": 8,
+      "pieces": [
+        {
+          "id": 0,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 1,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 7
+        },
+        {
+          "id": 2,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 7
+        },
+        {
+          "id": 3,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 5
+        },
+        {
+          "id": 4,
+          "axis": "vertical",
+          "length": 3,
+          "track": 5
+        },
+        {
+          "id": 5,
+          "axis": "horizontal",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 6,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 4
+        },
+        {
+          "id": 7,
+          "axis": "vertical",
+          "length": 3,
+          "track": 3
+        },
+        {
+          "id": 8,
+          "axis": "vertical",
+          "length": 2,
+          "track": 1
+        },
+        {
+          "id": 9,
+          "axis": "vertical",
+          "length": 3,
+          "track": 2
+        },
+        {
+          "id": 10,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 11,
+          "axis": "vertical",
+          "length": 3,
+          "track": 7
+        },
+        {
+          "id": 12,
+          "axis": "horizontal",
+          "length": 4,
+          "track": 0
+        },
+        {
+          "id": 13,
+          "axis": "vertical",
+          "length": 3,
+          "track": 0
+        },
+        {
+          "id": 14,
+          "axis": "vertical",
+          "length": 2,
+          "track": 6
+        },
+        {
+          "id": 15,
+          "axis": "vertical",
+          "length": 3,
+          "track": 6
+        },
+        {
+          "id": 16,
+          "axis": "horizontal",
+          "length": 2,
+          "track": 2
+        }
+      ],
+      "exitPieceId": 0,
+      "exitEdge": "right"
+    },
+    "state": {
+      "placements": [
+        {
+          "pieceId": 0,
+          "pos": 3
+        },
+        {
+          "pieceId": 1,
+          "pos": 5
+        },
+        {
+          "pieceId": 2,
+          "pos": 2
+        },
+        {
+          "pieceId": 3,
+          "pos": 2
+        },
+        {
+          "pieceId": 4,
+          "pos": 1
+        },
+        {
+          "pieceId": 5,
+          "pos": 0
+        },
+        {
+          "pieceId": 6,
+          "pos": 4
+        },
+        {
+          "pieceId": 7,
+          "pos": 2
+        },
+        {
+          "pieceId": 8,
+          "pos": 0
+        },
+        {
+          "pieceId": 9,
+          "pos": 0
+        },
+        {
+          "pieceId": 10,
+          "pos": 2
+        },
+        {
+          "pieceId": 11,
+          "pos": 1
+        },
+        {
+          "pieceId": 12,
+          "pos": 4
+        },
+        {
+          "pieceId": 13,
+          "pos": 4
+        },
+        {
+          "pieceId": 14,
+          "pos": 5
+        },
+        {
+          "pieceId": 15,
+          "pos": 1
+        },
+        {
+          "pieceId": 16,
+          "pos": 0
+        }
+      ]
+    }
+  }
+]

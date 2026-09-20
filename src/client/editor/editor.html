@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slideblock Editor</title>
+    <style>
+      /* index.css locks html/body to overflow:hidden + h-full for the game's
+         fixed-viewport screens, and is injected after this tag by Vite so it
+         would otherwise win the cascade. !important to actually beat it: the
+         editor's content grows taller than the viewport and must scroll. */
+      html,
+      body {
+        overflow: auto !important;
+        height: auto !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="editor.tsx"></script>
+  </body>
+</html>
