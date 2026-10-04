@@ -6,7 +6,6 @@ import { z } from 'zod';
 import {
   boardIdForPost,
   entryOf,
-  originPostId,
   parOf,
   previousDailies,
 } from './core/daily';
@@ -24,6 +23,7 @@ import { creditSolve, profileOf, solvedSet, type Profile } from './core/streak';
 import { verifySolution } from './core/verify';
 import { readClock, startClock } from './core/clock';
 import { commentBody, postComment } from './core/comment';
+import { awardFlair } from './core/flair';
 
 const t = initTRPC.context<Context>().create({ transformer });
 
@@ -256,20 +256,22 @@ export const appRouter = t.router({
             code: 'BAD_REQUEST',
             message: 'solve it first',
           });
-        const [par, board, profile, origin] = await Promise.all([
+        const [par, board, profile] = await Promise.all([
           parOf(input.boardId),
           standings(input.boardId, username),
           profileOf(username),
-          originPostId(input.boardId),
         ]);
 
-        // A bare score goes under the post's score thread; a note the player
+        // Always the post being played from — same-day reposts share a board,
+        // so the board's origin post is not necessarily where the player is.
+        // A bare score goes under that post's score thread; a note the player
         // actually wrote earns the top level.
         await postComment(
-          origin ?? requirePost(),
+          requirePost(),
           commentBody(result, par, board, profile ?? NO_PROFILE, input.note),
           input.note.trim().length === 0
         );
+        await awardFlair(username);
         return { posted: true };
       }),
   }),
